@@ -13,14 +13,13 @@ import Foundation
 #endif
 
 final class iOSStundenplanLibTests: XCTestCase {
+    
     func testExample() {
         var cancellable: AnyCancellable = StundenplanAPI.getTestStundenplan()
             .sink(receiveCompletion: { _ in
                 print("end")
             }, receiveValue: { (response: Response) in
-                for item in response.schedule {
-                    print("Item: \(item.docent)")
-                }
+                XCTAssertTrue(response.schedule.map { $0.docent }.contains{ $0 == "Prof. Dr. Peter Stöhr" })
             })
 
         sleep(4)
