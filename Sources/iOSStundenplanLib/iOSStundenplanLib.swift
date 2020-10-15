@@ -3,14 +3,28 @@
 //}
 import Foundation
 
-#if os(Linux)
+#if os(iOS)
+    import Combine
+#elseif os(OSX)
+    import Combine
+#elseif os(tvOS)
+    import Combine
+#else
     import FoundationNetworking
     import OpenCombine
     import OpenCombineDispatch
     import OpenCombineFoundation
-#else 
-    import Combine
 #endif
+
+
+//#if os(Linux)
+//    import FoundationNetworking
+//    import OpenCombine
+//    import OpenCombineDispatch
+//    import OpenCombineFoundation
+//#else 
+//    import Combine
+//#endif
 
 public struct Response: Codable {
     public let version: Double
@@ -18,6 +32,7 @@ public struct Response: Codable {
 }
 
 public struct Event: Codable {
+    public let id: String
     public let label: String
     public let docent: String
 }
