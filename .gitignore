@@ -3,3 +3,7 @@
 /Packages
 /*.xcodeproj
 xcuserdata/
+.idea/iOSStundenplanLib.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
