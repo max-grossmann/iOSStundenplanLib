@@ -1,12 +1,30 @@
 import XCTest
 @testable import iOSStundenplanLib
 
+import Foundation
+
+#if os(Linux)
+    import FoundationNetworking
+    import OpenCombine
+    import OpenCombineDispatch
+    import OpenCombineFoundation
+#else 
+    import Combine
+#endif
+
 final class iOSStundenplanLibTests: XCTestCase {
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        TestStructMax(text: "x").testMethod()
+        var cancellable: AnyCancellable = StundenplanAPI.getTestStundenplan()
+            .sink(receiveCompletion: { _ in
+                print("end")
+            }, receiveValue: { (response: Response) in
+                for item in response.schedule {
+                    print("Item: \(item.docent)")
+                }
+            })
+
+        sleep(4)
+
         //XCTAssertEqual(TestStructMax().testMethod, "Hello, World!")
     }
 
