@@ -1,12 +1,12 @@
 import XCTest
-@testable import TestStructMax
+@testable import iOSStundenplanLib
 
 final class iOSStundenplanLibTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        TestStructMax.testMethod()
+        TestStructMax(text: "x").testMethod()
         //XCTAssertEqual(TestStructMax().testMethod, "Hello, World!")
     }
 
