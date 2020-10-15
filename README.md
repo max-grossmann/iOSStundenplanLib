@@ -1,5 +1,11 @@
 # iOSStundenplanLib
 
+## Demo App
+
+Library wird hier benutzt:  
+https://github.com/emuench-hof-university/iOSStundenplanAppLibraryDemo
+
+
 ## Stundenplan abrufen:
 ```
 var cancellable: AnyCancellable = StundenplanAPI.getTestStundenplan()
