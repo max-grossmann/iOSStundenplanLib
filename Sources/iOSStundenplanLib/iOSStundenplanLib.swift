@@ -32,11 +32,11 @@ public struct Response: Codable {
 }
 
 public struct Event: Codable {
-    public let id: Int
+    public let id: String
     public let label: String
     public let docent: String
 
-    public init(id: Int, label: String, docent: String) {
+    public init(id: String, label: String, docent: String) {
         self.id = id;
         self.label = label;
         self.docent = docent;
