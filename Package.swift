@@ -20,9 +20,14 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "iOSStundenplanLib",
-            dependencies: []),
+            dependencies: ["OpenCombine",
+                            .product(name: "OpenCombineDispatch", package: "OpenCombine"),
+                            .product(name: "OpenCombineFoundation", package: "OpenCombine")]),
         .testTarget(
             name: "iOSStundenplanLibTests",
-            dependencies: ["iOSStundenplanLib"]),
+            dependencies: ["OpenCombine",
+                            .product(name: "OpenCombineDispatch", package: "OpenCombine"),
+                            .product(name: "OpenCombineFoundation", package: "OpenCombine"),
+                            "iOSStundenplanLib"]),
     ]
 )
